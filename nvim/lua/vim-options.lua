@@ -22,3 +22,7 @@ vim.wo.number = true
 
 vim.opt.termguicolors = true
 
+-- Markdown Preview 
+vim.api.nvim_set_keymap("n", "md", ":MarkdownPreview<CR>", { noremap = true, silent = true })
+
+

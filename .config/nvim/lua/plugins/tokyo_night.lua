@@ -3,7 +3,7 @@ return {
   lazy = false,
   priority = 1000, -- Load it early
   config = function()
-    vim.cmd("colorscheme tokyonight")
+    vim.cmd("colorscheme tokyonight-night")
   end,
 }
 

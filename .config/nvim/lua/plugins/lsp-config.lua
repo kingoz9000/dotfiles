@@ -17,6 +17,7 @@ return {
         "jedi_language_server", -- Python alternative
         "html", -- HTML
         "cssls", -- CSS
+        "ts_ls", -- JavaScript & TypeScript 
       },
       auto_install = true,
     },
@@ -100,6 +101,24 @@ return {
       lspconfig.cssls.setup({
         capabilities = capabilities,
         on_attach = on_attach,
+      })
+
+      -- JavaScript & TypeScript 
+      lspconfig.ts_ls.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = {
+          javascript = {
+            format = {
+              semicolons = "insert",
+            },
+          },
+          typescript = {
+            format = {
+              semicolons = "insert",
+            },
+          },
+        },
       })
 
     end,

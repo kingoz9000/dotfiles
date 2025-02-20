@@ -114,7 +114,8 @@ alias hosts='sudo nvim /etc/hosts'
 
 
 # Alias and IDF setup
-alias get_idf='. $HOME/esp/esp-idf/export.sh'
+export IDF_PATH=~/apps/esp-idf
+
 
 # Improved completion
 autoload -Uz compinit && compinit
@@ -177,9 +178,20 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 
+
+
 # Go setup
 export GOPATH=$HOME/.go
 export PATH=$GOPATH/bin:$PATH
 
 # Global Node setup
 export PATH=$HOME/.npm-global/bin:$PATH
+
+pgrep -f tmux_update_network_info.sh > /dev/null || ~/.tmux_update_network_info.sh &
+pgrep -f tmux_update_resources.sh > /dev/null || ~/.tmux_update_resources.sh &
+pgrep -f tmux_network_speed.sh > /dev/null || ~/.tmux_network_speed.sh &
+pgrep -f tmux_update_system_info.sh > /dev/null || ~/.tmux_update_system_info.sh &
+
+
+
+

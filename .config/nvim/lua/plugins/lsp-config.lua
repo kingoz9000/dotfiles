@@ -39,6 +39,10 @@ return {
         vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)           -- Show hover information
         vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- Rename symbol
         vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts) -- Code actions
+        vim.keymap.set("n", "<leader>gv", function() vim.lsp.buf.definition() end, { noremap = true, silent = true })
+
+
+
       end
 
       -- LSP server configurations with on_attach
@@ -77,21 +81,21 @@ return {
             analysis = {
               typeCheckingMode = "off",
               diagnosticMode = "workspace",
-              useLibraryCodeForTypes = false,
+              useLibraryCodeForTypes = true,
             },
           },
         },
       })
 
-      lspconfig.jedi_language_server.setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-        init_options = {
-          diagnostics = {
-            enable = false,
-          },
-        },
-      })
+      --lspconfig.jedi_language_server.setup({
+        --capabilities = capabilities,
+        --on_attach = on_attach,
+        --init_options = {
+          --diagnostics = {
+            --enable = false,
+          --},
+        --},
+      --})
 
       lspconfig.html.setup({
         capabilities = capabilities,

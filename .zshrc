@@ -194,4 +194,4 @@ pgrep -f tmux_update_system_info.sh > /dev/null || ~/.tmux_update_system_info.sh
 
 
 
-
+fortune | cowsay | lolcat

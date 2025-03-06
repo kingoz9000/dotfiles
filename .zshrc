@@ -164,6 +164,9 @@ eval "$(zoxide init --cmd cd bash)"
 
 alias sd="cd ~ && cd \$(find * -type d | fzf)"
 alias ls="lsd"
+alias batlimit="cat /sys/class/power_supply/BAT0/charge_control_end_threshold"
+alias batlimit80='echo "80" | sudo tee /etc/battery_threshold && sudo systemctl restart battery-charge-limit.service'
+alias batlimit100='echo "100" | sudo tee /etc/battery_threshold && sudo systemctl restart battery-charge-limit.service'
 
 # Tmux
 if [[ -z "$TMUX" ]]; then
@@ -195,3 +198,4 @@ pgrep -f tmux_update_system_info.sh > /dev/null || ~/.tmux_update_system_info.sh
 
 
 fortune | cowsay | lolcat
+

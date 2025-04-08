@@ -111,6 +111,7 @@ alias p1='$HOME/p1_proj/DRIVE'
 
 # For jutlandia
 alias hosts='sudo nvim /etc/hosts'
+alias matlabcli='matlab -nodesktop -nosplash'
 
 
 # Alias and IDF setup
@@ -196,6 +197,7 @@ pgrep -f tmux_network_speed.sh > /dev/null || ~/.tmux_network_speed.sh &
 pgrep -f tmux_update_system_info.sh > /dev/null || ~/.tmux_update_system_info.sh &
 
 
+alias cyberchef="firefox ~/apps/cyberchef/CyberChef_v10.19.4.html"
 
 fortune | cowsay | lolcat
 

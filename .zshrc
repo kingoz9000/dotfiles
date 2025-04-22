@@ -196,6 +196,7 @@ pgrep -f tmux_update_resources.sh > /dev/null || ~/.tmux_update_resources.sh &
 pgrep -f tmux_network_speed.sh > /dev/null || ~/.tmux_network_speed.sh &
 pgrep -f tmux_update_system_info.sh > /dev/null || ~/.tmux_update_system_info.sh &
 
+export PATH=$HOME/small-programming-projects/tools:$PATH
 
 alias cyberchef="firefox ~/apps/cyberchef/CyberChef_v10.19.4.html"
 

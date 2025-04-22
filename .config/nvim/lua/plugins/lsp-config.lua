@@ -35,11 +35,10 @@ return {
 
         -- Key mappings for LSP functions
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)     -- Go to definition
-        vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)     -- Find references
+        vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
         vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)           -- Show hover information
         vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- Rename symbol
         vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts) -- Code actions
-        vim.keymap.set("n", "<leader>gv", function() vim.lsp.buf.definition() end, { noremap = true, silent = true })
 
 
 

@@ -25,4 +25,10 @@ vim.opt.termguicolors = true
 -- Markdown Preview 
 vim.api.nvim_set_keymap("n", "md", ":MarkdownPreview<CR>", { noremap = true, silent = true })
 
+-- Custom command to delete text between <p> and </p>
+vim.api.nvim_create_user_command('CleanTagLine', function()
+  local lnum = vim.api.nvim_win_get_cursor(0)[1]
+  vim.cmd(lnum .. 's#<\\(\\w\\+\\)[^>]*>\\zs.\\{-}\\ze</\\1>##g')
+end, {})
+vim.keymap.set('n', '<leader>cl', ':CleanTagLine<CR>', { noremap = true, silent = true })
 

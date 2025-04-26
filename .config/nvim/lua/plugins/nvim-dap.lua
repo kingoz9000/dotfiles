@@ -5,6 +5,32 @@ return {
     config = function()
       local dap = require("dap")
 
+      -- Color and signs
+    vim.fn.sign_define("DapBreakpoint", { text = "🛑", texthl = "DiagnosticError" })
+    vim.fn.sign_define("DapStopped", {
+      text = "➜",
+      texthl = "DapStoppedHighlight",
+      linehl = "",
+      numhl = "",
+    })
+
+    vim.api.nvim_set_hl(0, 'DapStoppedLine', {
+      bg = '#2a2e3a', -- subtle background for line highlight
+    })
+
+    vim.api.nvim_set_hl(0, 'DapStoppedHighlight', {
+      fg = '#93c572',   -- arrow color
+      bg = '#1a1b26',
+      bold = true,
+    })
+
+    vim.fn.sign_define("DapStopped", {
+      text = "➜",
+      texthl = "DapStoppedHighlight", -- arrow color
+      linehl = "DapStoppedLine",      -- line highlight
+      numhl = "",                     -- optional: could use same as linehl
+    })
+
       -- Keybindings
       local map = vim.keymap.set
       map("n", "<F5>", dap.continue, { desc = "Start / Continue debugging" })
@@ -63,13 +89,37 @@ return {
           },
           {
             elements = {
-              { id = "console", size = 0.5 }, -- 🔁 console on the left
-              { id = "repl", size = 0.5 },    -- 🔁 repl on the right
+              { id = "console", size = 0.5 },
+              { id = "repl", size = 0.5 },
             },
             size = 10,
             position = "bottom",
           },
         },
+        floating = {
+          border = "rounded",
+          mappings = {
+            close = { "q", "<Esc>" },
+          },
+          win_options = {
+            winhighlight = "Normal:MyDapUIBackground,NormalNC:MyDapUIBackground",
+          },
+        },
+      })
+      vim.api.nvim_set_hl(0, "MyDapUIBackground", { bg = "#10131c" }) -- graphite
+
+      vim.api.nvim_create_autocmd("BufWinEnter", {
+        callback = function()
+          local ft = vim.bo.filetype
+          if ft == "dapui_scopes"
+          or ft == "dapui_breakpoints"
+          or ft == "dapui_stacks"
+          or ft == "dapui_watches"
+          or ft == "dapui_console"
+          or ft == "dap-repl" then
+          vim.api.nvim_win_set_option(0, "winhighlight", "Normal:MyDapUIBackground,NormalNC:MyDapUIBackground")
+          end
+        end,
       })
 
       -- Auto-open and close UI with debugging

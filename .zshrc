@@ -116,6 +116,7 @@ alias matlabcli='matlab -nodesktop -nosplash'
 
 # Alias and IDF setup
 export IDF_PATH=~/apps/esp-idf
+alias idfenv='source ~/apps/esp-idf/export.sh'
 
 
 # Improved completion
@@ -199,6 +200,12 @@ pgrep -f tmux_update_system_info.sh > /dev/null || ~/.tmux_update_system_info.sh
 export PATH=$HOME/small-programming-projects/tools:$PATH
 
 alias cyberchef="firefox ~/apps/cyberchef/CyberChef_v10.19.4.html"
+search() {
+  firefox "https://www.google.com/search?q=$(echo "$*" | sed 's/ /+/g')"
+}
 
-fortune | cowsay | lolcat
-
+cow_choices=(actually alpaca beavis.zen blowfish bong bud-frogs bunny cheese cower cupcake daemon default dragon dragon-and-cow elephant elephant-in-snake eyes flaming-sheep fox ghostbusters head-in hellokitty kiss kitty koala kosh llama luke-koala mech-and-cow meow milk moofasa moose mutilated ren sheep skeleton small stegosaurus stimpy supermilker surgery sus three-eyes turkey turtle tux udder vader vader-koala www)
+cow_choice=${cow_choices[RANDOM % ${#cow_choices[@]}]}
+eye_choices=(-b -d -g -p -s -t -w -y)
+eye_choice=${eye_choices[RANDOM % ${#eye_choices[@]}]}
+fortune | cowsay "$eye_choice" -f "$cow_choice" | lolcat

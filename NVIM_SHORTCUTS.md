@@ -80,3 +80,6 @@ Prefix is `Ctrl` + `a`.
 
 # Vim-test
 
+# Comment
+- `gcc` - Comment line
+- `gc` - Comment selection

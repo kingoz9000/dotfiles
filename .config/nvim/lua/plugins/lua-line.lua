@@ -4,7 +4,7 @@ return {
     config = function()
         require("lualine").setup({
             options = {
-                theme = "horizon",
+                theme = "iceberg_dark",
                 section_separators = { left = "", right = "" },
                 component_separators = { left = "", right = "" }
             }

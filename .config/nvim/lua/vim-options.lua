@@ -17,7 +17,6 @@ vim.keymap.set("n", "<Esc>", function()
   vim.cmd("nohlsearch")
 end, { noremap = true, silent = true })
 
-vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
 vim.wo.number = true
 
 vim.opt.termguicolors = true
@@ -25,25 +24,12 @@ vim.opt.termguicolors = true
 -- Markdown Preview 
 vim.api.nvim_set_keymap("n", "md", ":MarkdownPreview<CR>", { noremap = true, silent = true })
 
--- Custom command to delete text between <p> and </p>
-vim.api.nvim_create_user_command('CleanTagLine', function()
-  local lnum = vim.api.nvim_win_get_cursor(0)[1]
-  vim.cmd(lnum .. 's#<\\(\\w\\+\\)[^>]*>\\zs.\\{-}\\ze</\\1>##g')
-end, {})
-vim.keymap.set('n', '<leader>cl', ':CleanTagLine<CR>', { noremap = true, silent = true })
+-- Custom command to clean between html tags
+require("costum.clean-tag-line")
 
-vim.api.nvim_create_user_command('DiffWithFile', function()
-  require("telescope.builtin").find_files({
-    prompt_title = "Select file to diff with",
-    attach_mappings = function(_, map)
-      map("i", "<CR>", function(bufnr)
-        local entry = require("telescope.actions.state").get_selected_entry()
-        require("telescope.actions").close(bufnr)
-        vim.cmd("vert diffsplit " .. entry.value)
-      end)
-      return true
-    end,
-  })
-end, {})
-
-vim.keymap.set('n', '<leader>d', ':DiffWithFile<CR>', { noremap = true, silent = true })
+-- Custom command to diff a file
+require("costum.diff-with-file")
+---- Custom command to run a Python script that sends a notification
+require("costum.phone-notifications")
+-- Custom command to run a script that sets up a webserver directory etc...
+require("costum.create-web-dir")

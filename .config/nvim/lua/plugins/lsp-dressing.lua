@@ -10,6 +10,24 @@ return {
         win_options = {
           winblend = 10,
         },
+        relative = "editor",
+        prefer_width = 60,
+      },
+      select = {
+        backend = { "builtin" },
+        builtin = {
+          border = "rounded",
+          relative = "editor",
+          anchor = "NW",
+          width = 40,
+          height = 2,
+          max_height = 2,
+          min_height = 2,
+          win_options = {
+            winblend = 10,
+            cursorline = true,
+          },
+        },
       },
     })
 

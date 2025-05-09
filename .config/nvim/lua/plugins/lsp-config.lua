@@ -33,15 +33,13 @@ return {
       local on_attach = function(client, bufnr)
         local opts = { noremap = true, silent = true, buffer = bufnr }
 
-        -- Key mappings for LSP functions
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)     -- Go to definition
-        vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)           -- Show hover information
-        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- Rename symbol
-        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts) -- Code actions
-
-
-
+        vim.keymap.set("n", "gd", "<cmd>Lspsaga goto_definition<CR>", opts)
+        vim.keymap.set("n", "gr", "<cmd>Lspsaga finder<CR>", opts)
+        vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
+        vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
+        vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
+        vim.keymap.set("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+        vim.keymap.set("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
       end
 
       -- LSP server configurations with on_attach

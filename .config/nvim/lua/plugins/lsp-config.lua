@@ -13,9 +13,8 @@ return {
       ensure_installed = {
         "clangd", -- C
         "lua_ls", -- Lua
-        "pyright", -- Python
-        "jedi_language_server", -- Python alternative
         "html", -- HTML
+        "pyright",
         "cssls", -- CSS
         "ts_ls", -- JavaScript & TypeScript 
       },
@@ -35,11 +34,10 @@ return {
 
         vim.keymap.set("n", "gd", "<cmd>Lspsaga goto_definition<CR>", opts)
         vim.keymap.set("n", "gr", "<cmd>Lspsaga finder<CR>", opts)
-        vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
         vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
         vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
-        vim.keymap.set("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
-        vim.keymap.set("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
+        vim.keymap.set("n", "<leader>e", "<cmd>Lspsaga show_line_diagnostics<CR>")
       end
 
       -- LSP server configurations with on_attach
@@ -73,26 +71,7 @@ return {
       lspconfig.pyright.setup({
         capabilities = capabilities,
         on_attach = on_attach,
-        settings = {
-          python = {
-            analysis = {
-              typeCheckingMode = "off",
-              diagnosticMode = "workspace",
-              useLibraryCodeForTypes = true,
-            },
-          },
-        },
       })
-
-      --lspconfig.jedi_language_server.setup({
-        --capabilities = capabilities,
-        --on_attach = on_attach,
-        --init_options = {
-          --diagnostics = {
-            --enable = false,
-          --},
-        --},
-      --})
 
       lspconfig.html.setup({
         capabilities = capabilities,

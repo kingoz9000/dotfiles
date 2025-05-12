@@ -24,10 +24,10 @@ vim.opt.termguicolors = true
 -- Markdown Preview 
 vim.api.nvim_set_keymap("n", "md", ":MarkdownPreview<CR>", { noremap = true, silent = true })
 -- Custom command to clean between html tags
-require("costum.clean-tag-line")
+require("custom.clean-tag-line")
 -- Custom command to diff a file
-require("costum.diff-with-file")
+require("custom.diff-with-file")
 -- Custom command to run a Python script that sends a notification
-require("costum.phone-notifications")
+require("custom.phone-notifications")
 -- Custom command to run a script that sets up a static and templates directories etc...
-require("costum.create-web-dir")
+require("custom.create-web-dir")

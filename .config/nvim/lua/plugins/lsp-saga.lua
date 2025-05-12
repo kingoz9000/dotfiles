@@ -3,6 +3,11 @@ return {
   event = "LspAttach",
   config = function()
     require("lspsaga").setup({
+      code_action = {
+        filter = function(action)
+          return not string.match(action.title, "Extract.*into")
+        end
+      },
       symbol_in_winbar = {
         enable = false,
       },
@@ -12,7 +17,7 @@ return {
       },
       lightbulb = {
         enable = true,
-        sign = true,
+        sign = false,
         virtual_text = true,
       },
       finder = {

@@ -18,6 +18,11 @@ return {
         require("gitsigns").toggle_current_line_blame()
       end, { desc = "Toggle Git blame", noremap = true, silent = true })
 
+      -- Toggle Git blame full
+      vim.keymap.set("n", "<leader>gb", function()
+        require("gitsigns").blame_line({ full = true })
+      end, { desc = "Git blame full line", noremap = true, silent = true })
+
       -- Stage current hunk
       vim.keymap.set("n", "<leader>gs", function()
         require("gitsigns").stage_hunk()

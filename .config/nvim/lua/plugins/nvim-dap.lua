@@ -38,6 +38,39 @@ return {
       map("n", "<F7>", dap.step_into, { desc = "Step into" })
       map("n", "<F8>", dap.step_out, { desc = "Step out" })
       map("n", "<leader>db", dap.toggle_breakpoint, { desc = "Toggle breakpoint" })
+
+      -- STM32 GDB (arm-none-eabi-gdb + st-util)
+      dap.adapters.gdb = {
+        type = "executable",
+        command = "arm-none-eabi-gdb",
+        name = "gdb"
+      }
+
+      dap.configurations.c = {
+        {
+          name = "Debug STM32 ELF",
+          type = "gdb",
+          request = "launch",
+          program = "${workspaceFolder}/build/*.elf",
+          cwd = "${workspaceFolder}",
+          stopOnEntry = true,
+          runInTerminal = false,
+          args = {},
+        },
+      }
+      dap.configurations.cpp = {
+        {
+          name = "Debug STM32 C++ ELF",
+          type = "gdb",
+          request = "launch",
+          program = "${workspaceFolder}/build/*.elf",
+          cwd = "${workspaceFolder}",
+          stopOnEntry = true,
+          runInTerminal = false,
+          args = {},
+        },
+      }
+
     end,
   },
 

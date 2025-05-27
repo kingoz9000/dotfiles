@@ -109,6 +109,10 @@ export PATH="$HOME/tools/node-v14.15.4-linux-x64/bin:$PATH"
 # Temp alias
 alias p1='$HOME/p1_proj/DRIVE'
 
+
+# Ruby
+export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
+
 # For jutlandia
 alias hosts='sudo nvim /etc/hosts'
 alias matlabcli='matlab -nodesktop -nosplash'

@@ -81,7 +81,6 @@ return {
             python_path = vim.fn.system('pyenv which python'):gsub("\n", "")
           end
 
-          print("Pyright using Python at:", python_path)
 
           config.settings = {
             python = {

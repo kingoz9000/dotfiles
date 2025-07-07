@@ -35,7 +35,6 @@ return {
 
         vim.keymap.set("n", "gd", "<cmd>Lspsaga goto_definition<CR>", opts)
         vim.keymap.set("n", "gr", "<cmd>Lspsaga finder<CR>", opts)
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
         vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
         vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
         vim.keymap.set("n", "<leader>e", "<cmd>Lspsaga show_line_diagnostics<CR>")

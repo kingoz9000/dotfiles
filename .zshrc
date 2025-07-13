@@ -106,12 +106,14 @@ source $ZSH/oh-my-zsh.sh
 # Trying nvim
 export PATH="$HOME/tools/node-v14.15.4-linux-x64/bin:$PATH"
 
-# Temp alias
-alias p1='$HOME/p1_proj/DRIVE'
+alias waybar-restart="pkill waybar && waybar &"
+alias tmux="tmux -f ~/.config/tmux/tmux.conf"
 
 
 # Ruby
 export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
+
+export PATH="$HOME/.local/bin:$PATH"
 
 # For jutlandia
 alias hosts='sudo nvim /etc/hosts'
@@ -175,8 +177,8 @@ alias batlimit80='echo "80" | sudo tee /etc/battery_threshold && sudo systemctl 
 alias batlimit100='echo "100" | sudo tee /etc/battery_threshold && sudo systemctl restart battery-charge-limit.service'
 
 # Tmux
-if [[ -z "$TMUX" ]]; then
-    tmux attach-session -t main || tmux new-session -s main
+if [ -z "$TMUX" ] && [ "$PS1" ]; then
+  tmux attach-session -t main || tmux new-session -s main
 fi
 alias tks="tmux kill-session"
 
@@ -196,20 +198,22 @@ export PATH=$GOPATH/bin:$PATH
 # Global Node setup
 export PATH=$HOME/.npm-global/bin:$PATH
 
-pgrep -f tmux_update_network_info.sh > /dev/null || ~/.tmux_update_network_info.sh &
-pgrep -f tmux_update_resources.sh > /dev/null || ~/.tmux_update_resources.sh &
-pgrep -f tmux_network_speed.sh > /dev/null || ~/.tmux_network_speed.sh &
-pgrep -f tmux_update_system_info.sh > /dev/null || ~/.tmux_update_system_info.sh &
-
 export PATH=$HOME/small-programming-projects/tools:$PATH
 
 alias cyberchef="firefox ~/apps/cyberchef/CyberChef_v10.19.4.html"
 search() {
   firefox "https://www.google.com/search?q=$(echo "$*" | sed 's/ /+/g')"
 }
+if [[ $- == *i*  ]]; then
 
-cow_choices=(actually alpaca beavis.zen blowfish bong bud-frogs bunny cheese cower cupcake daemon default dragon dragon-and-cow elephant elephant-in-snake eyes flaming-sheep fox ghostbusters head-in hellokitty kiss kitty koala kosh llama luke-koala mech-and-cow meow milk moofasa moose mutilated ren sheep skeleton small stegosaurus stimpy supermilker surgery sus three-eyes turkey turtle tux udder vader vader-koala www)
-cow_choice=${cow_choices[RANDOM % ${#cow_choices[@]}]}
-eye_choices=(-b -d -g -p -s -t -w -y)
-eye_choice=${eye_choices[RANDOM % ${#eye_choices[@]}]}
-fortune | cowsay "$eye_choice" -f "$cow_choice" | lolcat
+  cow_choices=(actually alpaca beavis.zen blowfish bong bud-frogs bunny cheese cower cupcake daemon default dragon dragon-and-cow elephant elephant-in-snake eyes flaming-sheep fox ghostbusters head-in hellokitty kiss kitty koala kosh llama luke-koala mech-and-cow meow milk moofasa moose mutilated ren sheep skeleton small stegosaurus stimpy supermilker surgery sus three-eyes turkey turtle tux udder vader vader-koala www)
+  cow_choice=${cow_choices[RANDOM % ${#cow_choices[@]}]}
+  eye_choices=(-b -d -g -p -s -t -w -y)
+  eye_choice=${eye_choices[RANDOM % ${#eye_choices[@]}]}
+  fortune | cowsay "$eye_choice" -f "$cow_choice" | lolcat
+fi
+
+# Created by `pipx` on 2025-07-07 20:26:16
+export PATH="$PATH:/home/kolle/.local/bin"
+export EDITOR="nvim"
+

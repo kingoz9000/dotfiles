@@ -186,8 +186,10 @@ alias tks="tmux kill-session"
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 
 
@@ -217,3 +219,5 @@ fi
 export PATH="$PATH:/home/kolle/.local/bin"
 export EDITOR="nvim"
 
+export LC_TIME=da_DK.UTF-8
+export BROWSER=firefox

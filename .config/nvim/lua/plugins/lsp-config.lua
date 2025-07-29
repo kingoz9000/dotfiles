@@ -60,15 +60,6 @@ return {
       lspconfig.pyright.setup({
         capabilities = capabilities,
         on_attach = on_attach,
-        before_init = function(params, config)
-          local Path = util.path
-          local cwd = vim.fn.getcwd()
-          local python_path = vim.fn.system('pyenv which python'):gsub("\n", "")
-          if Path.is_file(Path.join(cwd, '.python-version')) then
-            python_path = vim.fn.system('pyenv which python'):gsub("\n", "")
-          end
-          config.settings = { python = { pythonPath = python_path } }
-        end,
       })
 
       lspconfig.html.setup({ capabilities = capabilities, on_attach = on_attach })

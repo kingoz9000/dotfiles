@@ -1,0 +1,42 @@
+font=Hack Nerd Font 16
+
+background-color=#00000080
+text-color=#FFFFFF
+border-color=#89b4fa
+border-radius=10
+
+
+anchor=top-right
+default-timeout=5000
+
+markup=1
+
+####################################
+# Tight OSD: app-name match — correct syntax
+####################################
+
+[app-name=volume-osd]
+font=Hack Nerd Font 64
+background-color=#00000000
+padding=4
+border-size=0
+border-radius=0
+default-timeout=1000
+anchor=top-right
+width=120
+layer=overlay
+
+[app-name=brightness-osd]
+font=Hack Nerd Font 64
+background-color=#00000000
+padding=4
+border-size=0
+border-radius=0
+default-timeout=1000
+anchor=top-right
+width=120
+layer=overlay
+
+[app-name=long-msg]
+width=600
+height=400

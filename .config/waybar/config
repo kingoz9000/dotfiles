@@ -1,0 +1,250 @@
+{
+  "layer": "top",
+  "position": "top",
+  "mod": "dock",
+  "exclusive": true,
+  "passthrough": false,
+  "gtk-layer-shell": true,
+  "height": 50,
+  "margin-right": 5,
+  "margin-left": 5,
+
+  "modules-left": [
+    "image#album-art",
+    "custom/spacer",
+    "clock",
+    "custom/spacer",
+    "custom/kanji",
+    "custom/spacer",
+    "cpu",
+    "custom/spacer",
+    "memory",
+    "custom/spacer",
+    "temperature",
+    "custom/spacer",
+    "custom/fan",
+    "custom/spacer",
+  ],
+
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+
+  "modules-right": [
+    "custom/spacer",
+    "custom/tx",
+    "custom/rx",
+    "custom/spacer",
+    "battery",
+    "custom/spacer",
+    "custom/airplane",
+    "custom/cpugov",
+    "network",
+    "bluetooth",
+    "tray",
+    "custom/album_updater"
+  ],
+
+  "custom/album_updater": {
+    "exec": "~/.config/waybar/scripts/album_cover.sh",
+    "interval": 5,
+    "format": "",
+  },
+
+  "image#album-art": {
+    "path": "/tmp/cover.jpg",
+    "size": 40,
+    "interval": 5,
+    "on-click": "playerctl play-pause",
+  },
+
+  "custom/spacer": {
+    "format": "",
+    "tooltip": false,
+  },
+
+  "clock": {
+    "tooltip": true,
+    "tooltip-format": "<tt><span size='21000'>{calendar}</span></tt>",
+    "calendar": {
+      "mode": "month",
+      "weeks-pos": "left",
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>",
+        "weeks": "<span color='#666666'><b>W{}|</b></span>",
+        "weekdays": "<span color='#666666'>    </span> Mo Tu We Th Fr Sa Su"
+      }
+    },
+    "actions":  {
+      "on-click-right": "shift_down", 
+      "on-click": "shift_up",
+    }
+  },
+
+  "custom/archlogo": {
+    "format": "",
+    "on-click": "wofi --show drun",
+    "tooltip": true,
+    "tooltip-format": "Launch Application Menu"
+  },
+
+  "custom/ip": {
+    "format": "{}",
+    "exec": "~/.config/waybar/scripts/ip.sh",
+    "interval": 30,
+  },
+  "custom/tx": {
+    "format": "{}KB/s",
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/netrate.sh tx",
+    "interval": 1,
+    "on-click": "notify-send \"$(ip route get 1.1.1.1 | awk '{print $7; exit}')\"",
+    "on-click-right": "notify-send \"$(curl -s https://api.ipify.org)\"",
+  },
+  "custom/rx": {
+    "format": "{}KB/s",
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/netrate.sh rx",
+    "interval": 1,
+    "on-click": "notify-send \"$(ip route get 1.1.1.1 | awk '{print $7; exit}')\"",
+    "on-click-right": "notify-send \"$(curl -s https://api.ipify.org)\"",
+  },
+
+  "custom/pacman": {
+    "states": {
+      "warning": 50,
+      "critical": 100,
+    },
+    "format": "󰮯 {}",
+    "exec": "checkupdates | wc -l",
+    "interval": 120,
+    "on-click": "kitty -e sudo pacman -Syu",
+  },
+
+  "custom/yay": {
+    "format": "󰰴 {}",
+    "exec": "yay -Qua | wc -l",
+    "interval": 120,
+    "on-click": "kitty -e yay -Syu",
+  },
+
+  "custom/japanese_quote": {
+    "return-type" : "json",
+    "exec": "/home/kolle/.config/waybar/scripts/random_japanese_quote.sh",
+    "on-click": "/home/kolle/.config/waybar/scripts/random_japanese_quote.sh",
+    "interval": 120,
+    "format": "{}",
+    "tooltip": true,
+  },
+
+  "custom/kanji": {
+    "return-type" : "json",
+    "restart-interval": false,
+    "exec": "/home/kolle/.config/waybar/scripts/random_kanji.sh",
+    "on-click": "/home/kolle/.config/waybar/scripts/open_kanji.sh",
+    "interval": 120,
+    "format": "{}",
+    "tooltip": true,
+  },
+
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 20,
+      "critical": 10
+    },
+    "on-click": "kitty -e sudo powertop",
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󱐥 {capacity}%",
+    "on-click-right": "/home/kolle/.config/waybar/scripts/fullcharge.sh",
+    "format-icons": [
+      "󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"
+    ]
+  },
+
+  "cpu": {
+    "interval": 10,
+    "format": " {usage}%",
+    "max-length": 10,
+    "on-click": "/home/kolle/.config/waybar/scripts/check_cpu_users.sh"
+  },
+
+  "memory": {
+    "interval": 30,
+    "format": " {used:0.1f}GB",
+    "format-alt-click": "click-right",
+    "format-alt": " {}%",
+    "max-length": 10,
+    "tooltip": true,
+    "tooltip-format": "Memory - {used:0.1f}GB used",
+    "on-click": "/home/kolle/.config/waybar/scripts/check_mem_users.sh"
+  },
+
+  "temperature": {
+    "hwmon-path": "/sys/class/hwmon/hwmon7/temp1_input",
+    "critical-threshold": 70,
+    "format-critical": " {temperatureC}°C",
+    "format-warning": " {temperatureC}°C",
+    "format": " {temperatureC}°C",
+    "interval": 5
+  },
+
+
+  "custom/fan": {
+    "format": "󰈐 {}",
+    "exec": "cat /sys/class/hwmon/hwmon5/fan1_input",
+    "interval": "5"
+
+  },
+
+    "custom/airplane": {
+    "return-type": "json",
+    "exec": "/home/kolle/.config/waybar/scripts/airplane_mode.sh",
+    "on-click": "/home/kolle/.config/waybar/scripts/airplane_mode.sh toggle",
+    "interval": 30,
+    "format": "{}",
+    "tooltip": true
+  },
+
+
+  "custom/cpugov": {
+    "return-type": "json",
+    "exec": "/home/kolle/.config/waybar/scripts/mode_switcher.sh",
+    "on-click": "/home/kolle/.config/waybar/scripts/mode_switcher.sh toggle",
+    "interval": 30,
+    "format": "{}",
+    "tooltip": true
+  },
+
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": " ",
+    "format-ethernet": " ",
+    "format-disconnected": " ", //An empty format will hide the module.
+    "tooltip-format": " {ifname} via {gwaddr}",
+    "tooltip-format-wifi": " {essid} ({signalStrength}%)",
+    "tooltip-format-ethernet": " {ifname} {ipaddr}/{cidr}",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50,
+    "on-click": "sh -c 'networkmanager_dmenu -l wofi --width 650 2>/dev/null'"
+  },
+
+  "bluetooth": {
+      "format": "{icon}",
+      "format-icons": {
+          "enabled": "",
+          "off": "󰂲",
+          "connected": "󰂱"
+      },
+      "on-click": "sh -c '~/.local/bin/wofi-bluetooth' >/dev/null 2>&1"
+  },
+
+  "tray": {
+    "icon-size": 24,
+  },
+
+
+}
+

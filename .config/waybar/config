@@ -56,6 +56,7 @@
     "size": 40,
     "interval": 5,
     "on-click": "playerctl play-pause",
+    "on-click-right": "notify-send \"$(playerctl metadata xesam:artist && playerctl metadata xesam:title)\" -i /tmp/cover.jpg" 
   },
 
   "custom/spacer": {
@@ -99,16 +100,16 @@
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/netrate.sh tx",
     "interval": 1,
-    "on-click": "notify-send \"$(ip route get 1.1.1.1 | awk '{print $7; exit}')\"",
-    "on-click-right": "notify-send \"$(curl -s https://api.ipify.org)\"",
+    "on-click": "ip=$(ip route get 1.1.1.1 | awk '{print $7; exit}') && notify-send $ip && wl-copy $ip",
+    "on-click-right": "ip=$(curl -s https://api.ipify.org) && notify-send $ip && wl-copy $ip"
   },
   "custom/rx": {
     "format": "{}KB/s",
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/netrate.sh rx",
     "interval": 1,
-    "on-click": "notify-send \"$(ip route get 1.1.1.1 | awk '{print $7; exit}')\"",
-    "on-click-right": "notify-send \"$(curl -s https://api.ipify.org)\"",
+    "on-click": "ip=$(ip route get 1.1.1.1 | awk '{print $7; exit}') && notify-send $ip && wl-copy $ip",
+    "on-click-right": "ip=$(curl -s https://api.ipify.org) && notify-send $ip && wl-copy $ip"
   },
 
   "custom/pacman": {

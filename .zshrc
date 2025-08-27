@@ -106,7 +106,6 @@ source $ZSH/oh-my-zsh.sh
 # Trying nvim
 export PATH="$HOME/tools/node-v14.15.4-linux-x64/bin:$PATH"
 
-alias waybar-restart="pkill waybar && waybar &"
 alias tmux="tmux -f ~/.config/tmux/tmux.conf"
 
 
@@ -218,6 +217,5 @@ fi
 # Created by `pipx` on 2025-07-07 20:26:16
 export PATH="$PATH:/home/kolle/.local/bin"
 export EDITOR="nvim"
-
 export LC_TIME=da_DK.UTF-8
 export BROWSER=firefox

@@ -40,7 +40,30 @@ return {
         vim.keymap.set("n", "<leader>e", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
       end
 
-      lspconfig.clangd.setup({ capabilities = capabilities, on_attach = on_attach })
+      lspconfig.clangd.setup({
+        capabilities = capabilities,
+        on_attach = function(client, bufnr)
+          -- your existing keymaps
+          on_attach(client, bufnr)
+
+          vim.bo[bufnr].expandtab = true
+          vim.bo[bufnr].shiftwidth = 2
+          vim.bo[bufnr].tabstop = 2
+          vim.bo[bufnr].softtabstop = 2
+
+          -- format on save, **only with clangd** to avoid other formatters interfering
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            callback = function()
+              vim.lsp.buf.format({
+                async = false,
+                filter = function(f) return f.name == "clangd" end,
+              })
+            end,
+          })
+        end,
+      })
+
       lspconfig.lua_ls.setup({
         capabilities = capabilities,
         on_attach = on_attach,

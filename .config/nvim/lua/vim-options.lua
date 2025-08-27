@@ -21,6 +21,15 @@ vim.wo.number = true
 
 vim.opt.termguicolors = true
 
+-- Disable automatic comment continuation in C and C++
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "c", "cpp" },
+  callback = function()
+    vim.opt_local.formatoptions:remove { "c", "r", "o" }
+  end,
+})
+
+
 -- Markdown Preview 
 vim.api.nvim_set_keymap("n", "md", ":MarkdownPreview<CR>", { noremap = true, silent = true })
 -- Custom command to clean between html tags
@@ -31,3 +40,5 @@ require("custom.diff-with-file")
 require("custom.phone-notifications")
 -- Custom command to run a script that sets up a static and templates directories etc...
 require("custom.create-web-dir")
+-- Custom command to run a script that shows man pages
+require("custom.man-pages")

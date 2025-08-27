@@ -17,6 +17,7 @@ return {
         "pyright",
         "cssls",
         "ts_ls",
+        "bashls",
       },
       auto_install = true,
     },
@@ -101,6 +102,10 @@ return {
           javascript = { format = { semicolons = "insert" } },
           typescript = { format = { semicolons = "insert" } },
         },
+      })
+      lspconfig.bashls.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
       })
 
       -- Setup colorizer.nvim to highlight colors inline

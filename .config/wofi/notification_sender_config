@@ -1,0 +1,30 @@
+layer = overlay
+location=top
+
+# Show dmenu mode by default (like rofi)
+show=dmenu
+
+# Terminal to launch when needed
+term=foot
+
+# Width and height of the window
+width=1500
+height=10
+
+# Hide the search bar if not in use
+hide_search=false
+
+# Define a custom layer (useful with Hyprland)
+layer=overlay
+
+# Use Wayland's monitor scaling
+scale=true
+
+# DPI aware fonts (in GTK theme or style.css)
+gtk_dark=true
+
+# Custom keybinding to close wofi
+allow_markup=true
+insensitive=true
+
+

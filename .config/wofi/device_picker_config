@@ -1,0 +1,23 @@
+layer = overlay
+show=dmenu
+term=foot
+
+width=200
+height=100
+location=top
+yoffset=15
+
+hide_search=true
+
+prompt=Run:
+
+layer=overlay
+
+scale=true
+
+gtk_dark=true
+
+allow_markup=true
+insensitive=true
+
+

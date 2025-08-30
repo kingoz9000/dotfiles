@@ -42,32 +42,12 @@ window#waybar {
   margin-right: 10px;
 }
 
-#custom-pacman {
-  color: #f8f8f2;
-  margin-right: 20px;
-}
-#custom-pacman.warning {
-  color: #fabd2f;
-}
-#custom-pacman.critical {
-  color: #fb4934;
-}
 
 #custom-yay {
   color: #f8f8f2;
   margin-right: 10px;
 }
-#yay.warning {
-  color: #fabd2f;
-}
-#yay.critical {
-  color: #fb4934;
-}
 
-#custom-japanese_quote {
-  color: #f8f8f2;
-  font-size: 18px;
-}
 
 #custom-kanji {
   color: #f8f8f2;
@@ -190,11 +170,11 @@ window#waybar {
 
 #tray {
   margin-right: 10px;
-  margin-right: 10px;
 }
 
 #bluetooth {
   margin-right: 10px;
+  margin-left: 10px;
   font-size: 25px;
 }
 #bluetooth.connected {

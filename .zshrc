@@ -120,8 +120,7 @@ alias matlabcli='matlab -nodesktop -nosplash'
 
 
 # Alias and IDF setup
-export IDF_PATH=~/apps/esp-idf
-alias idfenv='source ~/apps/esp-idf/export.sh'
+alias idfenv='source /opt/esp-idf/export.sh'
 
 
 # Improved completion

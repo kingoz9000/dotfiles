@@ -1,0 +1,28 @@
+window {
+    background-color: rgba(30, 30, 30, 0.50);
+    border-radius: 12px;
+    font-family: Hack Nerd Font, monospace;
+    font-size: 14px;
+    color: #eeeeee;
+}
+
+#entry:selected {
+    background-color: #89b4fa;
+    color: #ffffff;
+    border-radius: 8px;
+}
+
+#entry {
+    padding: 6px 12px;
+}
+
+#input {
+    margin: 10px;
+    border: none;
+    padding: 8px;
+    background-color: rgba(60, 60, 60, 0.7);
+    color: #ffffff;
+    border-radius: 8px;
+}
+
+

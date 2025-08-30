@@ -10,6 +10,7 @@ anchor=top-right
 default-timeout=5000
 
 markup=1
+layer=overlay
 
 ####################################
 # Tight OSD: app-name match — correct syntax

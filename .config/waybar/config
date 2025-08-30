@@ -159,7 +159,7 @@
     "format": "{icon} {capacity}%",
     "format-charging": "󰂄 {capacity}%",
     "format-plugged": "󱐥 {capacity}%",
-    "on-click-right": "/home/kolle/.config/waybar/scripts/fullcharge.sh",
+    "on-click-right": "fullcharge",
     "format-icons": [
       "󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"
     ]
@@ -202,31 +202,35 @@
 
     "custom/airplane": {
     "return-type": "json",
-    "exec": "/home/kolle/.config/waybar/scripts/airplane_mode.sh",
-    "on-click": "/home/kolle/.config/waybar/scripts/airplane_mode.sh toggle",
+    "exec": "airplane_mode",
+    "on-click": "airplane_mode toggle",
     "interval": 30,
     "format": "{}",
-    "tooltip": true
+    "tooltip": true,
+    "states": {
+    "on": "on",
+    "off": "off"
+    },
   },
 
 
   "custom/cpugov": {
     "return-type": "json",
-    "exec": "/home/kolle/.config/waybar/scripts/mode_switcher.sh",
-    "on-click": "/home/kolle/.config/waybar/scripts/mode_switcher.sh toggle",
-    "interval": 30,
+    "exec": "bat_mode_switcher",
+    "on-click": "bat_mode_switcher toggle",
+    "interval": 5,
     "format": "{}",
     "tooltip": true
   },
 
   "network": {
     "format": "{ifname}",
-    "format-wifi": " ",
-    "format-ethernet": " ",
-    "format-disconnected": " ", //An empty format will hide the module.
+    "format-wifi": "",
+    "format-ethernet": "",
+    "format-disconnected": "", //An empty format will hide the module.
     "tooltip-format": " {ifname} via {gwaddr}",
-    "tooltip-format-wifi": " {essid} ({signalStrength}%)",
-    "tooltip-format-ethernet": " {ifname} {ipaddr}/{cidr}",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+    "tooltip-format-ethernet": "{ifname} {ipaddr}/{cidr}",
     "tooltip-format-disconnected": "Disconnected",
     "max-length": 50,
     "on-click": "sh -c 'networkmanager_dmenu -l wofi --width 650 2>/dev/null'"

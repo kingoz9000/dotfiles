@@ -8,11 +8,13 @@ APP_ICONS = {
     "firefox": "",
     "kitty": "",
     "spotify": "",
-    "obsidian": "",
+    "obsidian": "󰎚",
     "steam": "",
     "dolphin": "",
     "org.pulseaudio.pavucontrol": "",
     "org.qutebrowser.qutebrowser": "󱛊",
+    "java-lang-thread": "󰿉",
+    "org.kde.okular": "",
 }
 
 # Polling interval in seconds

@@ -38,6 +38,7 @@
     "battery",
     "custom/spacer",
     "custom/airplane",
+    "custom/hypridle",
     "custom/cpugov",
     "network",
     "bluetooth",
@@ -250,6 +251,13 @@
     "icon-size": 24,
   },
 
+  "custom/hypridle": {
+    "format": "{}",
+    "exec": "hypridle_inhibit",
+    "on-click": "hypridle_inhibit toggle",
+    "interval": 5,
+    "return-type": "json",
+  }
 
 }
 

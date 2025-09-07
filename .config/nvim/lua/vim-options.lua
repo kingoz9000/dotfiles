@@ -18,6 +18,7 @@ vim.keymap.set("n", "<Esc>", function()
 end, { noremap = true, silent = true })
 
 vim.wo.number = true
+vim.wo.relativenumber = true
 
 vim.opt.termguicolors = true
 

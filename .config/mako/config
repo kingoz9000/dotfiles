@@ -3,7 +3,7 @@ font=Hack Nerd Font 16
 background-color=#00000080
 text-color=#FFFFFF
 border-color=#89b4fa
-border-radius=10
+border-radius=15
 
 
 anchor=top-right
@@ -12,8 +12,6 @@ default-timeout=5000
 markup=1
 layer=overlay
 
-####################################
-# Tight OSD: app-name match — correct syntax
 ####################################
 
 [app-name=volume-osd]

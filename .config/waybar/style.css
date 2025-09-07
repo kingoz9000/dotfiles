@@ -192,3 +192,15 @@ window#waybar {
 #tray * {
   padding: 10px;
 }
+
+#custom-hypridle {
+  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 28px;
+}
+#custom-hypridle.on {
+  color: #fabd2f;
+}
+#custom-hypridle.off {
+  color: #50fa7b;
+}

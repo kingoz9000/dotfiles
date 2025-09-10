@@ -15,6 +15,7 @@ APP_ICONS = {
     "org.qutebrowser.qutebrowser": "󱛊",
     "java-lang-thread": "󰿉",
     "org.kde.okular": "",
+    "steam": "",
 }
 
 # Polling interval in seconds

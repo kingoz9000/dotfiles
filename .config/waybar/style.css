@@ -184,11 +184,6 @@ window#waybar {
   color: #fb4934;
 }
 
-#album-art {
-  border-radius: 8px;
-  margin: 0 10px;
-}
-
 #tray * {
   padding: 10px;
 }
@@ -203,4 +198,8 @@ window#waybar {
 }
 #custom-hypridle.off {
   color: #50fa7b;
+}
+
+#image.album-art {
+  margin-left: 5px;
 }

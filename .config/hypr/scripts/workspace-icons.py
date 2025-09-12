@@ -16,6 +16,7 @@ APP_ICONS = {
     "java-lang-thread": "󰿉",
     "org.kde.okular": "",
     "steam": "",
+    "google-chrome": "󰊯",
 }
 
 # Polling interval in seconds

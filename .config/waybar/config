@@ -40,6 +40,7 @@
     "custom/airplane",
     "custom/hypridle",
     "custom/cpugov",
+    "custom/dse_vpn",
     "network",
     "bluetooth",
     "tray",
@@ -196,8 +197,8 @@
 
   "custom/fan": {
     "format": "󰈐 {}",
-    "exec": "cat /sys/class/hwmon/hwmon5/fan1_input",
-    "interval": "5"
+    "exec": "awk '/^speed/ {print $2}' /proc/acpi/ibm/fan",
+    "interval": 5
 
   },
 
@@ -257,6 +258,15 @@
     "on-click": "hypridle_inhibit toggle",
     "interval": 5,
     "return-type": "json",
+  },
+
+  "custom/dse_vpn": {
+    "return-type": "json",
+    "exec": "dse_vpn",
+    "on-click": "dse_vpn toggle",
+    "interval": 5,
+    "format": "{}",
+    "tooltip": true
   }
 
 }

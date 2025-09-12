@@ -1,0 +1,28 @@
+#[Sunsetr configuration]
+backend = "auto"                
+start_hyprsunset = true         
+
+# replace these two ↓
+# startup_transition = true      
+# startup_transition_duration = 1
+
+# with these ↓
+smoothing = true                 # Smooth transition on startup
+startup_duration = 1             # Duration of startup smoothing (1-60)
+
+night_temp = 3600               
+day_temp = 6500                 
+night_gamma = 90                
+day_gamma = 100                 
+update_interval = 60            
+transition_mode = "geo"         
+
+#[Manual transitions]
+sunset = "19:00:00"             
+sunrise = "06:00:00"            
+transition_duration = 45        
+
+#[Geolocation-based transitions]
+latitude = 55.677681            
+longitude = 12.570934           
+

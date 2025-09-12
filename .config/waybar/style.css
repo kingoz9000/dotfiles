@@ -130,6 +130,7 @@ window#waybar {
 
 #custom-airplane {
   margin-right: 10px;
+  margin-left: 10px;
   font-size: 28px;
 }
 
@@ -137,9 +138,6 @@ window#waybar {
   color: #fb4934;
 }
 
-#custom-airplane.off {
-  color: #50fa7b;
-}
 
 #custom-cpugov {
   margin-right: 10px;
@@ -196,10 +194,14 @@ window#waybar {
 #custom-hypridle.on {
   color: #fabd2f;
 }
-#custom-hypridle.off {
-  color: #50fa7b;
-}
 
 #image.album-art {
   margin-left: 5px;
 }
+#custom-dse_vpn {
+  margin-right: 10px;
+  margin-left: 10px;
+  color: #1689ca;
+  font-size: 24px;
+}
+

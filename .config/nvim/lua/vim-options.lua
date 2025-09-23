@@ -33,12 +33,12 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Markdown Preview 
 vim.api.nvim_set_keymap("n", "md", ":MarkdownPreview<CR>", { noremap = true, silent = true })
+-- extra go to end of line
+vim.api.nvim_set_keymap("n", "½", "$", { noremap = true, silent = true })
 -- Custom command to clean between html tags
 require("custom.clean-tag-line")
 -- Custom command to diff a file
 require("custom.diff-with-file")
--- Custom command to run a Python script that sends a notification
-require("custom.phone-notifications")
 -- Custom command to run a script that sets up a static and templates directories etc...
 require("custom.create-web-dir")
 -- Custom command to run a script that shows man pages

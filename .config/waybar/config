@@ -6,8 +6,6 @@
   "passthrough": false,
   "gtk-layer-shell": true,
   "height": 50,
-  "margin-right": 5,
-  "margin-left": 5,
 
   "modules-left": [
     "image#album-art",
@@ -41,6 +39,8 @@
     "custom/hypridle",
     "custom/cpugov",
     "custom/dse_vpn",
+    "custom/mic_mute",
+    "pulseaudio",
     "network",
     "bluetooth",
     "tray",
@@ -92,11 +92,6 @@
     "tooltip-format": "Launch Application Menu"
   },
 
-  "custom/ip": {
-    "format": "{}",
-    "exec": "~/.config/waybar/scripts/ip.sh",
-    "interval": 30,
-  },
   "custom/tx": {
     "format": "{}KB/s",
     "return-type": "json",
@@ -112,24 +107,6 @@
     "interval": 1,
     "on-click": "ip=$(ip route get 1.1.1.1 | awk '{print $7; exit}') && notify-send $ip && wl-copy $ip",
     "on-click-right": "ip=$(curl -s https://api.ipify.org) && notify-send $ip && wl-copy $ip"
-  },
-
-  "custom/pacman": {
-    "states": {
-      "warning": 50,
-      "critical": 100,
-    },
-    "format": "󰮯 {}",
-    "exec": "checkupdates | wc -l",
-    "interval": 120,
-    "on-click": "kitty -e sudo pacman -Syu",
-  },
-
-  "custom/yay": {
-    "format": "󰰴 {}",
-    "exec": "yay -Qua | wc -l",
-    "interval": 120,
-    "on-click": "kitty -e yay -Syu",
   },
 
   "custom/japanese_quote": {
@@ -191,13 +168,14 @@
     "format-critical": " {temperatureC}°C",
     "format-warning": " {temperatureC}°C",
     "format": " {temperatureC}°C",
-    "interval": 5
+    "interval": 5,
   },
 
 
   "custom/fan": {
     "format": "󰈐 {}",
     "exec": "awk '/^speed/ {print $2}' /proc/acpi/ibm/fan",
+      "on-click": "level=$(cat /proc/acpi/ibm/fan) && notify-send --app-name long-msg \"Current level\" \"$level\"",
     "interval": 5
 
   },
@@ -220,7 +198,7 @@
     "return-type": "json",
     "exec": "bat_mode_switcher",
     "on-click": "bat_mode_switcher toggle",
-    "interval": 5,
+    "interval": 10,
     "format": "{}",
     "tooltip": true
   },
@@ -256,7 +234,15 @@
     "format": "{}",
     "exec": "hypridle_inhibit",
     "on-click": "hypridle_inhibit toggle",
-    "interval": 5,
+    "interval": 10,
+    "return-type": "json",
+  },
+
+  "custom/mic_mute": {
+    "format": "{}",
+    "exec": "mic-mute",
+    "on-click": "mic-mute toggle",
+    "interval": 10,
     "return-type": "json",
   },
 
@@ -264,10 +250,30 @@
     "return-type": "json",
     "exec": "dse_vpn",
     "on-click": "dse_vpn toggle",
-    "interval": 5,
+    "interval": 10,
     "format": "{}",
     "tooltip": true
-  }
+  },
+
+  "pulseaudio": {
+    "format": "{icon}",
+    "format-bluetooth": "{icon}",
+    "format-icons": {
+      "headphones": "󰋎",
+      "headphones-muted": "󰋐",
+      "handsfree": "",
+      "headset": "󰋎",
+      "headset-muted": "󰋐",
+      "phone": "",
+      "phone-muted": "",
+      "portable": "",
+      "car": "",
+      "default": ["", ""],
+      "default-muted": "󰖁"
+    },
+    "scroll-step": 1,
+    "on-click": "pavucontrol"
+  },
 
 }
 

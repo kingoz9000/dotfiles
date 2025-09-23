@@ -17,6 +17,8 @@ APP_ICONS = {
     "org.kde.okular": "",
     "steam": "",
     "google-chrome": "󰊯",
+    "nordpass": "󰌾",
+    "discord": "",
 }
 
 # Polling interval in seconds

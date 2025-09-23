@@ -8,7 +8,7 @@
 }
 
 window#waybar {
-  background: radial-gradient(transparent, #4e2694);
+  background: radial-gradient(#4e2694, transparent);
   color: #f8f8f2;
 }
 
@@ -176,7 +176,7 @@ window#waybar {
   font-size: 25px;
 }
 #bluetooth.connected {
-  color: #50fa7b;
+  color: #89b4fa;
 }
 #bluetooth.off {
   color: #fb4934;
@@ -195,6 +195,24 @@ window#waybar {
   color: #fabd2f;
 }
 
+#custom-mic_mute {
+  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 28px;
+}
+#custom-mic_mute.on {
+  color: #fb4934;
+}
+
+#custom-volume_mute {
+  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 28px;
+}
+#custom-volume_mute.on {
+  color: #fb4934;
+}
+
 #image.album-art {
   margin-left: 5px;
 }
@@ -205,3 +223,22 @@ window#waybar {
   font-size: 24px;
 }
 
+#pulseaudio {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+#pulseaudio.bluetooth {
+  color: #89b4fa;
+}
+#pulseaudio.muted {
+  color: #fb4934;
+}
+
+#backlight {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+#backlight.low {
+  color: #fb4934;
+}

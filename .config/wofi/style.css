@@ -6,6 +6,10 @@ window {
     color: #eeeeee;
 }
 
+#img{
+    margin-right: 10px;
+}
+
 #entry:selected {
     background-color: #89b4fa;
     color: #ffffff;

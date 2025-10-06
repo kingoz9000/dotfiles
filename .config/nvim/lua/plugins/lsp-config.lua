@@ -53,15 +53,6 @@ return {
           vim.bo[bufnr].softtabstop = 2
 
           -- format on save, **only with clangd** to avoid other formatters interfering
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            buffer = bufnr,
-            callback = function()
-              vim.lsp.buf.format({
-                async = false,
-                filter = function(f) return f.name == "clangd" end,
-              })
-            end,
-          })
         end,
       })
 

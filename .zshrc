@@ -218,3 +218,4 @@ export PATH="$PATH:/home/kolle/.local/bin"
 export EDITOR="nvim"
 export LC_TIME=da_DK.UTF-8
 export BROWSER=firefox
+source <(fzf --zsh)
